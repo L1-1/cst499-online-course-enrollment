@@ -1,0 +1,122 @@
+[
+  {
+    "test": "Anonymous access to courses.php redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Anonymous access to schedule.php redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Anonymous access to waiting.php redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Anonymous access to drop.php?offering=1 redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Anonymous access to profile.php redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Anonymous access to offer.php?id=1 redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Register synthetic student alex",
+    "result": "PASS"
+  },
+  {
+    "test": "Register synthetic student brooke",
+    "result": "PASS"
+  },
+  {
+    "test": "Register synthetic student casey",
+    "result": "PASS"
+  },
+  {
+    "test": "Login alex",
+    "result": "PASS"
+  },
+  {
+    "test": "Login brooke",
+    "result": "PASS"
+  },
+  {
+    "test": "Login casey",
+    "result": "PASS"
+  },
+  {
+    "test": "Enrollment POST requires CSRF",
+    "result": "PASS"
+  },
+  {
+    "test": "Enrollment GET does not mutate",
+    "result": "PASS"
+  },
+  {
+    "test": "Invalid offering identifier is rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "First class registration redirects after commit",
+    "result": "PASS"
+  },
+  {
+    "test": "Add another class redirects after commit",
+    "result": "PASS"
+  },
+  {
+    "test": "Duplicate HTTP registration preserves two rows",
+    "result": "PASS"
+  },
+  {
+    "test": "Foreign enrollment confirmation is inaccessible",
+    "result": "PASS"
+  },
+  {
+    "test": "Foreign enrollment POST does not delete Alex record",
+    "result": "PASS"
+  },
+  {
+    "test": "Viewing removal confirmation leaves database unchanged",
+    "result": "PASS"
+  },
+  {
+    "test": "Confirmed removal redirects after commit",
+    "result": "PASS"
+  },
+  {
+    "test": "Empty term displays required message",
+    "result": "PASS"
+  },
+  {
+    "test": "Brooke fills single-seat offering",
+    "result": "PASS"
+  },
+  {
+    "test": "Alex can join full-offering waiting list",
+    "result": "PASS"
+  },
+  {
+    "test": "Offer page checks recipient ownership",
+    "result": "PASS"
+  },
+  {
+    "test": "Accepting offer succeeds",
+    "result": "PASS"
+  },
+  {
+    "test": "Acceptance creates enrollment and removes queue entry",
+    "result": "PASS"
+  },
+  {
+    "test": "Invalid profile edit is rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Valid profile edit persists",
+    "result": "PASS"
+  }
+]

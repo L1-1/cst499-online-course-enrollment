@@ -1,0 +1,50 @@
+CST499 FINAL PROJECT — NARRATION SCRIPT
+Louis Murphy
+
+1098 spoken words. At 140–150 words per minute, approximately 7.3–7.8 minutes before pauses. Rehearse and verify an actual duration of 7–10 minutes. Record your face with the slides.
+
+SLIDE 1: Online Course Enrollment
+Hello, I’m Louis Murphy. My capstone is Online Course Enrollment, a PHP and MySQL application that helps students create an account, find semester offerings, manage their schedules, and join a waiting list when a class is full. I will explain how the requirements connect to the UML design, the interface, and the database. I will also distinguish the functionality demonstrated by the prototype from the work still needed before an operational release.
+
+SLIDE 2: Requirements and project scope
+The SRS gives the project a defined scope. Students need reliable account creation, authentication, profile updates, and semester-specific course listings. They also need to enroll, remove a class, or wait for a seat without duplicate registrations or overenrollment. The central rule is that active enrollments plus reserved seats must never exceed an offering’s capacity. Payments, grading, and prerequisites are outside this prototype. Requirements have identifiers so the design and tests can be traced back to expected behavior. The final SRS preserves unfinished requirements instead of treating them as completed features.
+
+SLIDE 3: UML use case model
+The use case diagram shows the system boundary and the actions available to each actor. An applicant creates an account, while a student logs in, edits a profile, searches offerings, manages enrollment, and responds to offers. Protected actions require authentication. Staff supply course offerings outside the prototype interface. The external email actor represents the intended notification integration. The current application creates notification tasks, but it does not yet contact an external email service. This distinction keeps the model useful without overstating the implementation.
+
+SLIDE 4: UML classes and physical tables
+The class diagram describes the relationships among accounts, offerings, enrollments, queue entries, and seat offers. The physical database refines this conceptual model. It uses numeric account identifiers instead of the modeled UUIDs, and it separates courses and semesters from individual offerings. It also stores only active enrollment rows, deleting a row when the student cancels. Terminal seat offers retain their recipient and result. The revised UML paper explicitly documents these differences so reviewers can follow the connection between the original design and the delivered code.
+
+SLIDE 5: UML cancellation sequence
+The sequence diagram explains what happens when a student cancels a class. The application checks the student, locks the offering, and removes that student’s enrollment. If someone is waiting, the same transaction creates a reservation, an in-app notice, and a notification task. A failure must roll back those related changes together. Gray’s transaction research supports this all-or-nothing behavior. The diagram also shows a mail worker processing committed tasks. That part remains planned, while the transaction and outbox record are implemented.
+
+SLIDE 6: UML activity and offer states
+The activity diagram shows the decision to enroll or offer a waiting-list option. The server first checks authorization and duplicate membership, then determines whether an unreserved seat exists. Joining a waiting list requires the student’s request. The state diagram follows a reserved seat from pending to accepted, declined, or expired. Acceptance converts the reservation into an enrollment. Decline or expiration allows reallocation. The implementation uses a 24-hour window, but that policy still requires institutional approval. Repeated terminal actions must not create additional enrollment records.
+
+SLIDE 7: Landing, login, and account registration
+The landing page introduces the service and offers clear registration and login links. The login form accepts a user ID and password. The registration form collects contact details and checks required fields, password confirmation, and duplicate identifiers. Shared navigation and styling keep these pages consistent. Account creation commits the credentials and linked profile together. It does not by itself enroll the student in a class. These screenshots show the Week 3 entry-page design that the later course-registration workflow builds on.
+
+SLIDE 8: Course enrollment and schedule design
+The course catalog adds the academic workflow to the account system. A semester selector limits the offerings shown. Students can see course details and available seats, register when space remains, or join a waiting list. The schedule lists only the authenticated student’s classes in the selected semester. An Add more courses link returns to that term’s catalog. Removing a class opens a confirmation page before the application changes the database. This helps prevent an accidental click from immediately changing a student’s schedule.
+
+SLIDE 9: MySQL structure and relationships
+The database expands the initial two account tables into nine InnoDB tables. Courses and semesters describe the catalog, while offerings identify a section and its capacity. Enrollments connect students to those offerings. Waiting-list entries, seat offers, and notification tasks support the reservation workflow. The screenshot is an actual phpMyAdmin Structure view, showing column types and indexes. This directly addresses the instructor’s request for physical database evidence. Unique constraints reject duplicate student-offering pairs, and foreign keys prevent references to missing records.
+
+SLIDE 10: Registration changes persist in MySQL
+These database captures connect the visible interface to stored results. The first registration adds one enrollment row. Registering for another class adds a second row for the same account with a different offering. After the first class is removed, the second remains. The full evidence supplement also contains the empty starting table, the schedule screens, and seat-offer state changes. This sequence demonstrates why screenshots of the interface alone are insufficient: the database evidence confirms which records the PHP operations actually inserted or deleted.
+
+SLIDE 11: PHP services and protected operations
+The PHP code separates shared infrastructure from enrollment behavior. Database.php configures PDO, and the service methods prepare SQL before binding values. Halfond and colleagues explain how SQL injection confuses input data with executable query syntax. Parameterized queries address that mechanism here. Session ownership checks and CSRF validation protect state-changing requests, applying the complete-mediation principle described by Saltzer and Schroeder. EnrollmentService then locks the offering before checking remaining seats. Commit and rollback keep changes consistent when requests compete or an exception interrupts processing.
+
+SLIDE 12: Recorded verification results
+The recorded baseline contains 84 passing checks: 27 authentication regression checks, 27 database and concurrency checks, and 30 HTTP checks. The concurrent-seat scenario verified that two competing requests produced one enrollment for the remaining seat. Failure injection checked rollback, and HTTP tests exercised the restricted application account. These are preserved October 28 results, not a newly executed acceptance run. The test plan adds requirement traceability, clear pass criteria, incident reporting, and release gates, following the testing discipline discussed by Spillner and colleagues.
+
+SLIDE 13: Final revisions and remaining release work
+The final package brings together the revised requirements, UML, interface and database papers, PHP explanation, references, and runnable source. The database correction now includes actual phpMyAdmin views. The design documentation explains the implemented schema and the remaining integrations. External email delivery and retries still need a worker. HTTPS deployment, the planned load test, and stakeholder acceptance also remain open. My main lesson is that a convincing software submission connects requirements to code and observable database results, while accurately identifying what the evidence does and does not demonstrate.
+
+SLIDE 14: References
+These scholarly sources support the transaction and security decisions discussed in the presentation.
+
+SLIDE 15: References
+The course texts support the development and testing approach. Thank you for reviewing my project.
+

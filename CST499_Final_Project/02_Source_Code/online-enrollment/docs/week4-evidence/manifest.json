@@ -1,0 +1,172 @@
+[
+  {
+    "file": "01_database_before.png",
+    "caption": "Before migration: the Week 3 database contains accounts and profiles.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fdatabase%2Fstructure&db=online_enrollment"
+  },
+  {
+    "file": "02_database_after.png",
+    "caption": "After migration: nine InnoDB tables support accounts, semesters, enrollment, queues, and offers.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fdatabase%2Fstructure&db=online_enrollment"
+  },
+  {
+    "file": "03_structure_accounts.png",
+    "caption": "Actual phpMyAdmin Structure view of accounts: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=accounts"
+  },
+  {
+    "file": "04_structure_profiles.png",
+    "caption": "Actual phpMyAdmin Structure view of profiles: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=profiles"
+  },
+  {
+    "file": "05_structure_courses.png",
+    "caption": "Actual phpMyAdmin Structure view of courses: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=courses"
+  },
+  {
+    "file": "06_structure_semesters.png",
+    "caption": "Actual phpMyAdmin Structure view of semesters: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=semesters"
+  },
+  {
+    "file": "07_structure_offerings.png",
+    "caption": "Actual phpMyAdmin Structure view of offerings: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=offerings"
+  },
+  {
+    "file": "08_structure_enrollments.png",
+    "caption": "Actual phpMyAdmin Structure view of enrollments: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=enrollments"
+  },
+  {
+    "file": "09_structure_waiting_list.png",
+    "caption": "Actual phpMyAdmin Structure view of waiting_list: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=waiting_list"
+  },
+  {
+    "file": "10_structure_seat_offers.png",
+    "caption": "Actual phpMyAdmin Structure view of seat_offers: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=seat_offers"
+  },
+  {
+    "file": "11_structure_notification_tasks.png",
+    "caption": "Actual phpMyAdmin Structure view of notification_tasks: column names, types, nullability, defaults, and keys.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Fstructure&db=online_enrollment&table=notification_tasks"
+  },
+  {
+    "file": "12_enrollment_relations.png",
+    "caption": "Foreign-key relationships link enrollments.account_id to accounts.id and enrollments.offering_id to offerings.id.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Ftable%2Frelation&db=online_enrollment&table=enrollments"
+  },
+  {
+    "file": "13_course_seed.png",
+    "caption": "Seeded offerings identify courses, semesters, sections, and capacities.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=offerings&sql_query=SELECT+%2A+FROM+offerings+ORDER+BY+id%3B"
+  },
+  {
+    "file": "14_course_catalog.png",
+    "caption": "Semester-filtered course catalog with capacities and registration actions.",
+    "url": "http://127.0.0.1:4173/courses.php?semester=1"
+  },
+  {
+    "file": "15_schedule_empty.png",
+    "caption": "The student starts with an empty Fall 2026 schedule.",
+    "url": "http://127.0.0.1:4173/schedule.php?semester=1"
+  },
+  {
+    "file": "16_before_first_enrollment.png",
+    "caption": "Before first registration: enrollments contains zero rows.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=enrollments&sql_query=SELECT+%2A+FROM+enrollments+ORDER+BY+id%3B"
+  },
+  {
+    "file": "17_after_first_enrollment.png",
+    "caption": "After first registration and before adding another class: Alex (account_id 1) is enrolled in offering 1.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=enrollments&sql_query=SELECT+%2A+FROM+enrollments+ORDER+BY+id%3B"
+  },
+  {
+    "file": "18_schedule_one.png",
+    "caption": "The schedule displays the first registered class.",
+    "url": "http://127.0.0.1:4173/schedule.php?semester=1"
+  },
+  {
+    "file": "19_after_second_enrollment.png",
+    "caption": "After adding a class and before deletion: account_id 1 has offering_id 1 and 2.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=enrollments&sql_query=SELECT+%2A+FROM+enrollments+ORDER+BY+id%3B"
+  },
+  {
+    "file": "20_schedule_two.png",
+    "caption": "Two registered classes total six credits; Add more courses returns to the same semester.",
+    "url": "http://127.0.0.1:4173/schedule.php?semester=1"
+  },
+  {
+    "file": "21_remove_confirmation.png",
+    "caption": "A separate confirmation page identifies the exact class and explains the seat release.",
+    "url": "http://127.0.0.1:4173/drop.php?offering=1&semester=1"
+  },
+  {
+    "file": "22_after_deletion.png",
+    "caption": "After confirmed deletion: offering 1 is removed while offering 2 remains for the same student.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=enrollments&sql_query=SELECT+%2A+FROM+enrollments+ORDER+BY+id%3B"
+  },
+  {
+    "file": "23_schedule_after_deletion.png",
+    "caption": "The refreshed schedule contains only Database Systems after removal.",
+    "url": "http://127.0.0.1:4173/schedule.php?semester=1"
+  },
+  {
+    "file": "24_empty_semester.png",
+    "caption": "Summer 2027 has no seeded offerings and displays the empty-term message.",
+    "url": "http://127.0.0.1:4173/courses.php?semester=3"
+  },
+  {
+    "file": "25_waiting_list.png",
+    "caption": "The waiting-list page identifies the course, semester, and queue position.",
+    "url": "http://127.0.0.1:4173/waiting.php"
+  },
+  {
+    "file": "26_reserved_offer.png",
+    "caption": "Cancellation creates a reserved-seat notice for Alex with an acceptance link and expiration.",
+    "url": "http://127.0.0.1:4173/waiting.php"
+  },
+  {
+    "file": "27_offer_decision.png",
+    "caption": "The offer page supports explicit acceptance or decline.",
+    "url": "http://127.0.0.1:4173/offer.php?id=1"
+  },
+  {
+    "file": "28_offer_database.png",
+    "caption": "Before acceptance: one pending reservation retains its recipient and waiting-list entry.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=seat_offers&sql_query=SELECT+id%2Coffering_id%2Crecipient_id%2Cwaiting_id%2Cstatus%2Cexpires_at+FROM+seat_offers+ORDER+BY+id%3B"
+  },
+  {
+    "file": "29_offer_accepted.png",
+    "caption": "After acceptance: status is accepted and waiting_id is cleared; the recipient remains recorded.",
+    "url": "http://127.0.0.1:4174/index.php?route=%2Fsql&db=online_enrollment&table=seat_offers&sql_query=SELECT+id%2Coffering_id%2Crecipient_id%2Cwaiting_id%2Cstatus%2Cexpires_at+FROM+seat_offers+ORDER+BY+id%3B"
+  },
+  {
+    "file": "30_edit_profile_verified.png",
+    "caption": "Profile editing retains the existing account identity while allowing contact updates.",
+    "url": "http://127.0.0.1:4173/profile.php"
+  },
+  {
+    "file": "31_code_transaction.png",
+    "caption": "Actual PHP source from app/EnrollmentService.php, lines 7-31.",
+    "url": "file:///workspace/scratch/5ed1b0d9c4a6/runtime/31_code_transaction.html"
+  },
+  {
+    "file": "32_code_register_remove.png",
+    "caption": "Actual PHP source from app/EnrollmentService.php, lines 59-81.",
+    "url": "file:///workspace/scratch/5ed1b0d9c4a6/runtime/32_code_register_remove.html"
+  },
+  {
+    "file": "33_code_request.png",
+    "caption": "Actual PHP source from public/enroll.php, lines 1-19.",
+    "url": "file:///workspace/scratch/5ed1b0d9c4a6/runtime/33_code_request.html"
+  },
+  {
+    "file": "34_code_schedule.png",
+    "caption": "Actual PHP source from app/EnrollmentService.php, lines 137-151.",
+    "url": "file:///workspace/scratch/5ed1b0d9c4a6/runtime/34_code_schedule.html"
+  }
+]

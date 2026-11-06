@@ -1,0 +1,124 @@
+PASS Nine InnoDB application tables exist
+PASS Foreign key rejects a nonexistent student
+PASS Database rejects zero capacity
+PASS Enrollment persists one student and offering pair
+PASS Repeated enrollment consumes no extra seat
+PASS Unique index rejects duplicate pair directly
+PASS Semester schedule shows two Fall courses
+PASS Spring schedule excludes Fall courses
+PASS Empty semester returns zero offerings
+PASS Other student cannot cancel an enrollment
+PASS Removal and repeated removal preserve remaining course
+PASS Full offering rejects an additional enrollment
+PASS Duplicate and enrolled students do not create queue duplicates
+PASS Equal timestamps are ordered by sequence
+PASS Injected failure rolls back cancellation and reservation
+PASS Cancellation reserves the seat for the first waiting student
+PASS In-app notice and one outbox task commit with reservation
+PASS Pending reservation blocks a direct enrollment
+PASS Only the recipient can accept a seat offer
+PASS Acceptance is idempotent and clears the recipient queue entry
+PASS Next cancellation offers the seat to the next student
+PASS Expiration removes old entry and allocates to next student
+PASS Decline releases the seat with an empty queue
+PASS Student may leave the waiting list
+PASS Invalid offering is rejected without partial changes
+PASS Committed enrollments persist on a new connection
+
+PASS Concurrent last-seat requests
+PASS GET index.php returns 200
+PASS GET login.php returns 200
+PASS GET register.php returns 200
+PASS Anonymous account access redirects
+PASS Registration rejects missing CSRF
+PASS Invalid registration case 1 returns 422
+PASS Invalid registration case 2 returns 422
+PASS Invalid registration case 3 returns 422
+PASS Invalid registration case 4 returns 422
+PASS Invalid registration case 5 returns 422
+PASS Invalid registration case 6 returns 422
+PASS Valid registration redirects after save
+PASS Both linked rows persist with matching data
+PASS Password is hashed and verifies
+PASS Duplicate normalized user ID is rejected
+PASS Duplicate email is rejected
+PASS Incorrect password returns 401
+PASS SQL injection text does not authenticate
+PASS Valid login redirects
+PASS Login rotates the session identifier
+PASS Profile escapes stored markup
+PASS Logout rejects missing CSRF
+PASS Valid logout redirects
+PASS Protected page is inaccessible after logout
+PASS Failed profile insert rolls back the account
+PASS Demonstration account exists
+PASS Demonstration account login succeeds
+27 checks, 0 failures
+
+
+FINAL HTTP AND EVIDENCE RUN
+Captured 01_database_before
+Captured 02_database_after
+Captured 03_structure_accounts
+Captured 04_structure_profiles
+Captured 05_structure_courses
+Captured 06_structure_semesters
+Captured 07_structure_offerings
+Captured 08_structure_enrollments
+Captured 09_structure_waiting_list
+Captured 10_structure_seat_offers
+Captured 11_structure_notification_tasks
+Captured 12_enrollment_relations
+Captured 13_course_seed
+PASS Anonymous access to courses.php redirects to login
+PASS Anonymous access to schedule.php redirects to login
+PASS Anonymous access to waiting.php redirects to login
+PASS Anonymous access to drop.php?offering=1 redirects to login
+PASS Anonymous access to profile.php redirects to login
+PASS Anonymous access to offer.php?id=1 redirects to login
+PASS Register synthetic student alex
+PASS Register synthetic student brooke
+PASS Register synthetic student casey
+PASS Login alex
+PASS Login brooke
+PASS Login casey
+PASS Enrollment POST requires CSRF
+PASS Enrollment GET does not mutate
+PASS Invalid offering identifier is rejected
+Captured 14_course_catalog
+Captured 15_schedule_empty
+Captured 16_before_first_enrollment
+PASS First class registration redirects after commit
+Captured 17_after_first_enrollment
+Captured 18_schedule_one
+PASS Add another class redirects after commit
+Captured 19_after_second_enrollment
+Captured 20_schedule_two
+PASS Duplicate HTTP registration preserves two rows
+PASS Foreign enrollment confirmation is inaccessible
+PASS Foreign enrollment POST does not delete Alex record
+Captured 21_remove_confirmation
+PASS Viewing removal confirmation leaves database unchanged
+PASS Confirmed removal redirects after commit
+Captured 22_after_deletion
+Captured 23_schedule_after_deletion
+PASS Empty term displays required message
+Captured 24_empty_semester
+PASS Brooke fills single-seat offering
+PASS Alex can join full-offering waiting list
+Captured 25_waiting_list
+Captured 26_reserved_offer
+Captured 27_offer_decision
+PASS Offer page checks recipient ownership
+Captured 28_offer_database
+PASS Accepting offer succeeds
+Captured 29_offer_accepted
+PASS Acceptance creates enrollment and removes queue entry
+Captured 30_edit_profile
+PASS Invalid profile edit is rejected
+PASS Valid profile edit persists
+Captured 31_code_transaction
+Captured 32_code_register_remove
+Captured 33_code_request
+Captured 34_code_schedule
+Captured 34 images; 30 HTTP checks passed.

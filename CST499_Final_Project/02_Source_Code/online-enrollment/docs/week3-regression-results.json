@@ -1,0 +1,114 @@
+{
+    "php": "8.3.6",
+    "database": "8.0.46-0ubuntu0.24.04.3",
+    "tests": [
+        {
+            "test": "GET index.php returns 200",
+            "result": "PASS"
+        },
+        {
+            "test": "GET login.php returns 200",
+            "result": "PASS"
+        },
+        {
+            "test": "GET register.php returns 200",
+            "result": "PASS"
+        },
+        {
+            "test": "Anonymous account access redirects",
+            "result": "PASS"
+        },
+        {
+            "test": "Registration rejects missing CSRF",
+            "result": "PASS"
+        },
+        {
+            "test": "Invalid registration case 1 returns 422",
+            "result": "PASS"
+        },
+        {
+            "test": "Invalid registration case 2 returns 422",
+            "result": "PASS"
+        },
+        {
+            "test": "Invalid registration case 3 returns 422",
+            "result": "PASS"
+        },
+        {
+            "test": "Invalid registration case 4 returns 422",
+            "result": "PASS"
+        },
+        {
+            "test": "Invalid registration case 5 returns 422",
+            "result": "PASS"
+        },
+        {
+            "test": "Invalid registration case 6 returns 422",
+            "result": "PASS"
+        },
+        {
+            "test": "Valid registration redirects after save",
+            "result": "PASS"
+        },
+        {
+            "test": "Both linked rows persist with matching data",
+            "result": "PASS"
+        },
+        {
+            "test": "Password is hashed and verifies",
+            "result": "PASS"
+        },
+        {
+            "test": "Duplicate normalized user ID is rejected",
+            "result": "PASS"
+        },
+        {
+            "test": "Duplicate email is rejected",
+            "result": "PASS"
+        },
+        {
+            "test": "Incorrect password returns 401",
+            "result": "PASS"
+        },
+        {
+            "test": "SQL injection text does not authenticate",
+            "result": "PASS"
+        },
+        {
+            "test": "Valid login redirects",
+            "result": "PASS"
+        },
+        {
+            "test": "Login rotates the session identifier",
+            "result": "PASS"
+        },
+        {
+            "test": "Profile escapes stored markup",
+            "result": "PASS"
+        },
+        {
+            "test": "Logout rejects missing CSRF",
+            "result": "PASS"
+        },
+        {
+            "test": "Valid logout redirects",
+            "result": "PASS"
+        },
+        {
+            "test": "Protected page is inaccessible after logout",
+            "result": "PASS"
+        },
+        {
+            "test": "Failed profile insert rolls back the account",
+            "result": "PASS"
+        },
+        {
+            "test": "Demonstration account exists",
+            "result": "PASS"
+        },
+        {
+            "test": "Demonstration account login succeeds",
+            "result": "PASS"
+        }
+    ]
+}

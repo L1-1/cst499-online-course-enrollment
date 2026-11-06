@@ -1,0 +1,137 @@
+[
+  {
+    "requirement": "DATA-01",
+    "test": "Nine InnoDB application tables exist",
+    "result": "PASS"
+  },
+  {
+    "requirement": "DATA-01",
+    "test": "Foreign key rejects a nonexistent student",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-06",
+    "test": "Database rejects zero capacity",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-06",
+    "test": "Enrollment persists one student and offering pair",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-06",
+    "test": "Repeated enrollment consumes no extra seat",
+    "result": "PASS"
+  },
+  {
+    "requirement": "DATA-01",
+    "test": "Unique index rejects duplicate pair directly",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-05",
+    "test": "Semester schedule shows two Fall courses",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-05",
+    "test": "Spring schedule excludes Fall courses",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-05",
+    "test": "Empty semester returns zero offerings",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-08",
+    "test": "Other student cannot cancel an enrollment",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-08",
+    "test": "Removal and repeated removal preserve remaining course",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-06",
+    "test": "Full offering rejects an additional enrollment",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-07",
+    "test": "Duplicate and enrolled students do not create queue duplicates",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-07",
+    "test": "Equal timestamps are ordered by sequence",
+    "result": "PASS"
+  },
+  {
+    "requirement": "NFR-03",
+    "test": "Injected failure rolls back cancellation and reservation",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-09",
+    "test": "Cancellation reserves the seat for the first waiting student",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-09",
+    "test": "In-app notice and one outbox task commit with reservation",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-10",
+    "test": "Pending reservation blocks a direct enrollment",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-10",
+    "test": "Only the recipient can accept a seat offer",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-10",
+    "test": "Acceptance is idempotent and clears the recipient queue entry",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-09",
+    "test": "Next cancellation offers the seat to the next student",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-10",
+    "test": "Expiration removes old entry and allocates to next student",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-10",
+    "test": "Decline releases the seat with an empty queue",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-07",
+    "test": "Student may leave the waiting list",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-06",
+    "test": "Invalid offering is rejected without partial changes",
+    "result": "PASS"
+  },
+  {
+    "requirement": "NFR-03",
+    "test": "Committed enrollments persist on a new connection",
+    "result": "PASS"
+  },
+  {
+    "requirement": "FR-06",
+    "test": "Two concurrent requests for one seat create exactly one enrollment",
+    "result": "PASS"
+  }
+]
